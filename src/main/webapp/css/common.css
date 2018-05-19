@@ -1,0 +1,625 @@
+* {
+	/* border-bottom: 0px; border-left: 0px;  */
+	padding-bottom: 0px; margin: 0px; 
+	padding-left: 0px; padding-right: 0px; 
+	font-family: "Microsoft YaHei", sans-serif; 
+	/* border-top: 0px; border-right: 0px;  */
+	padding-top: 0px; -webkit-text-size-adjust: none
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+* { margin: 0px; padding: 0px}
+* {line-height: initial;line-height: normal;}
+* {text-align: initial;text-align: justify;}
+
+body { margin: 0px; padding: 0px;}
+html,body {
+	overflow-x: hidden; background-repeat: repeat; font-size: 14px;margin: 0;padding: 0;
+	width: 100%;
+	height: 100%;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+	margin: 0px;
+	padding: 0px;
+}
+/**
+ * 浮动处理 
+ * 浮动讲解
+ * http://www.cnblogs.com/Capricornus/archive/2010/08/06/1793900.html
+ * http://jingyan.baidu.com/article/c74d60006bea410f6a595d17.html
+ * http://www.cnblogs.com/iyangyuan/archive/2013/03/27/2983813.html 
+ * */
+/* 浮动清除 - class名清除 */
+.clear-both {clear: both;overflow: hidden;}
+.clearit { clear:both; height:0px; font-size:0px; overflow:hidden; }
+/* 浮动清除 - 伪类清除 */
+.clearfix:after { content: ".";display: block;height: 0px;clear: both;visibility: hidden;}
+/* 伪类清除的ie hack */
+* html .clearfix {zoom: 1;}
+/* 左浮动 */
+.float-left { float: left;}
+/* 右浮动 */
+.float-right { float: right;}
+.margin-auto {
+	display: block;
+	margin: 0 auto;
+}
+
+/* 一些通用组件样式 */
+.input{
+	display: inline-block;
+	width: 238px;
+	height: 30px;
+	font-size: 14px;
+	border: 1px solid #2EA4DA;
+	position: relative;
+}
+.input input {
+	display: block;
+	height: 100%;
+	width: 100%;
+	padding-left: 5px;
+	padding-right: 55px;
+	font-size: 14px;
+}
+
+.input .text {
+	display: inline-block;
+	height: 100%;
+	width: 55px;
+	position: absolute;
+	background-color: #2EA4DA;
+	top: 0px;
+	right: 0px;
+	color: white;
+	cursor: pointer;
+}
+/* Tab组件样式 */
+.tab-container {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.tab-header {
+	width: 100%;
+	height: 35px;
+}
+
+.tab-title .tab-bar {
+	display: none;
+	height: 2px;
+	width: 50%;
+	background-color: #2EA4DA;
+}
+.tab-bar-anchor {
+	display: inline-block;
+	width: 11px;
+	height: 8px;
+	background-position-y: bottom;
+	background-image: url(../images/icon_arraw_down.png);
+}
+
+.tab-title {
+	display: inline-block;
+	width: 40%;
+	height: 100%;
+	cursor: pointer;
+}
+.tab-title.active {
+	color: #2EA4DA;
+} 
+.tab-title.active .tab-bar {
+	display: block;
+} 
+
+.tab-body {
+	width: 100%;
+	height: 220px;
+	margin-top: -1px;
+	border: 1px solid lightgray;
+}
+
+
+/* 分页组件样式 */
+.pager {
+    display: inline-block;
+	height: 32px;
+	line-height: 30px;
+	text-align: center;
+    color: #777779;
+}
+.pager .page-number {
+	display: inline-block;
+}
+.pager .number {
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	text-align: center;
+	line-height: 28px;
+	border: 1px solid lightgrey;
+	font-size: 12px;
+	margin-left: 3px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.pager .page-number .number.first {
+}
+.pager .page-number .number-text {
+}
+.pager .page-number .number.last {
+}
+.pager .page-total {
+	display: inline-block;
+}
+.pager .page-total .number{
+	width: auto;
+	border: none;
+}
+.pager .page-input {
+	display: inline-block;
+	vertical-align: middle;
+}
+.pager .page-input input {
+	display: block;
+}
+.pager .page-goto {
+	display: inline-block;
+	margin-left: 2px;
+	vertical-align: middle;
+}
+.pager .page-goto button {
+	background: none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+
+/* 内容头部(显示说明和搜索等功能)*/
+.content-header {
+	height: 45px;
+	margin-top: 10px;
+	padding-left: 8px;
+}
+.content-header .title {
+	width: 60px;
+	height: 100%;
+	border-bottom: 2px solid greenyellow;
+	color: #2EA4DA;
+}
+.content-header .title .text {
+	bottom: 5px;
+}
+.content-header .right-content {
+	height: 100%;
+	margin-left: 65px;
+	border-bottom: 2px solid #D9F6FE;
+}
+.content-header .right-content .input {
+	bottom: 5px;
+}
+
+
+
+/* 页面左侧菜单导航栏 */
+.menu .menu-item {
+	height: 60px;
+	cursor: pointer;
+	color: gray;
+	margin-top: -1px;
+}
+.menu-item .menu-item-content {
+	display: inline-block;
+	margin-left: 30px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	background-repeat: no-repeat;
+	background-position-y: center;
+	background-position-x: left;
+	padding-left: 25px;
+}
+.menu .menu-item .head {
+	background-image: url(../images/icon_item_all_default.png);
+}
+.menu .menu-item .default {
+	background-image: url(../images/icon_item_default.png);
+}
+.menu .menu-item:hover {
+	background-color: #2EA4DA;
+	color: white;
+}
+.menu .menu-item.hover {
+	background-color: #2EA4DA;
+	color: white;
+}
+.menu .menu-item.hover .head {
+	background-image: url(../images/icon_item_all_default.png);
+}
+.menu .menu-item.hover .default {
+	background-image: url(../images/icon_item_selected.png);
+}
+.menu .menu-item:hover .default {
+	background-image: url(../images/icon_item_selected.png);
+}
+.menu .menu-item .split {
+	width: 160px;
+	height: 1px;
+	background-color: #2EA4DA;
+}
+
+
+/* 一些通用样式 */
+.common-border {
+	border: 1px #f5f5f5 solid;
+	border-radius: 10px;
+	-moz-box-shadow:0px 0px 2px #d4d3d3;; -webkit-box-shadow:0px 0px 2px #d4d3d3;; box-shadow:0px 0px 2px #d4d3d3;
+}
+
+.btn {
+	text-align: center;
+	border-radius: 5px;
+	border: none;
+}
+.btn-default {
+    color: #fff;
+    background-color: #2EA4DA;
+	width: 10rem;
+}
+
+
+
+.btn-common {
+	width: 90px;
+	height: 30px;
+	margin: 5px 0px 5px 0px;
+	text-align: center;
+	border-radius: 5px;
+	border: none;
+    color: #8D8D8F;
+    background-color: #F2F3F5;
+}
+.btn-common.select {
+    color: #fff;
+    background-color: #2EA4DA;
+}
+.btn-common:hover {
+    color: #fff;
+    background-color: #2EA4DA;
+}
+.btn-common.hover {
+    color: #fff;
+    background-color: #2EA4DA;
+}
+
+
+.btn-download {
+	display: inline-block;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 5px;
+	border: 1px solid #949A9A;
+    color: white;
+    background-color: #34AEE5;
+    padding-left: 25px;
+    
+    background-image: url(../images/icon_download_1.png);
+	background-repeat: no-repeat;
+	background-position-x: 32px;
+	background-position-y: center;
+	
+	cursor: pointer;
+}
+
+.btn-collection {
+	display: inline-block;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 5px;
+	border: 1px solid #949A9A;
+    color: white;
+    background-color: #34AEE5;
+    padding-left: 25px;
+    
+    background-image: url(../images/icon_collection.png);
+	background-repeat: no-repeat;
+	background-position-x: 26px;
+	background-position-y: center;
+	
+	cursor: pointer;
+}
+
+.icon-like {
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	background-repeat: no-repeat;
+	background-position-y: center;
+	background-position-x: left;
+	padding-left: 20px;
+	background-image: url(../images/icon_heart_red.png);
+	cursor: pointer;
+}
+.icon-play {
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	background-repeat: no-repeat;
+	background-position-y: center;
+	background-position-x: left;
+	padding-left: 20px;
+	background-image: url(../images/icon_play.png);
+	cursor: pointer;
+}
+
+.icon-like-not-select {
+	background-image: url(../images/icon_heart.png);
+}
+.icon-delete {
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	background-repeat: no-repeat;
+	background-position-y: center;
+	background-position-x: left;
+	padding-left: 20px;
+	cursor: pointer;
+	background-image: url(../images/icon_delete.png);
+}
+
+.icon-star {
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	background-repeat: no-repeat;
+	background-position-y: center;
+	background-position-x: left;
+	padding-left: 20px;
+	background-image: url(../images/icon_star_empty.png);
+	cursor: pointer;
+}
+.icon-star.empty {
+	background-image: url(../images/icon_star_empty.png);
+}
+.icon-star.half {
+	background-image: url(../images/icon_star_half.png);
+}
+.icon-star.full {
+	background-image: url(../images/icon_star_full.png);
+}
+
+
+
+/**
+ *  css2下利用text-align与vertical-align实现自由定位原理
+ *  1: 容器元素的height和ling-height一定要设置成一样的高度
+ *  2: 被定位元素设置成display:inline-block
+ *  3: 利用父级元素的text-align实现被定位元素的水平左中右定位
+ *  4: 利用被定位元素的vertical-align实现相对于父元素的上中下定位
+ *  5: 为消除子元素继承父元素设置的text-align和ling-height特性，增加"* {line-height: initial;}"和"* {text-align: initial;}"特性,
+ *    ie中增加"line-height: normal;"和"text-align: justify;",因为initial是css3中增加的特性。
+ */
+.align-child-left {
+	text-align: left;
+	overflow: hidden;
+}
+.align-child-center {
+	text-align: center;
+	overflow: hidden;
+}
+.align-child-right {
+	text-align: right;
+	overflow: hidden;
+}
+.align-parent-top {
+	display: inline-block;
+	vertical-align: top;
+}
+.align-parent-middle {
+	display: inline-block;
+	vertical-align: middle;
+}
+.align-parent-bottom {
+	display: inline-block;
+	vertical-align: bottom;
+	margin-bottom: 2px;
+}
+
+/* css2中使用position实现子元素自由定位的封装 */
+.enable-child-position {
+	position: relative;
+}
+/* 子元素重合父元素  */
+.same-size-paren {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.position-absolute {
+	position: absolute;
+}
+.position-parent-left {
+	position: absolute;
+		left: 0px;
+}
+.position-parent-right {
+	position: absolute;
+		right: 0px;
+}
+.position-parent-top {
+	position: absolute;
+		top: 0px;
+}
+.position-parent-bottom {
+	position: absolute;
+		bottom: 0px;
+}
+.position-parent-center-horizontal,.position-parent-center-vertical,.position-parent-center {
+	position: absolute;
+}
+
+.match_paren_width {
+	width:100%;
+}
+.match_paren_height {
+	height:100%;
+}
+
+/* 鼠标手势 */
+.cursor-pointer {
+	cursor: pointer;
+}
+
+
+
+
+
+
+/*a {color: #333; text-decoration: none;}
+a:link{text-decoration:none ;}
+a:visited {text-decoration :none;}
+a:hover {text-decoration : none ; color:#ffa62a;}
+a:active {text-decoration : none ;}
+
+a:-webkit-any-link {
+	color: white;
+    text-decoration: none;
+    cursor: auto;
+}
+a {
+    background-color: transparent;
+    color: #337ab7;
+    text-decoration: none;
+}*/
+
+
+/* ====================全局 页面头部样式 开始=============== */
+.header {
+	width: 100%;
+	height: 80px;
+}
+.header-content {
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.header .left {
+	position: absolute;
+    width: 100%;
+	height: 80px;
+	line-height: 80px;
+	color: #2EA4DA;
+}
+
+.header .left .top {
+	height: 25px;
+	top: 10px;
+	left: 5px;
+}
+.header .left .bottom {
+	bottom: 4px;
+	left: 10px;
+	width: 100%;
+}
+
+
+.btn-home-page {
+	display: inline-block;
+	font-size: 13px;
+	padding-left: 24px;
+	background-image: url(../images/icon_oa_home.png);
+	background-repeat: no-repeat;
+	background-position-x: 2px;
+	background-position-y: 0px;
+	background-size: auto;
+	position: relative;
+	bottom: -2px;
+}
+
+
+.top-split {
+	display: inline-block;
+	background-color: #E4E4E4;
+	width: 1px;
+	height: 20px;    
+	margin-left: 10px;
+    margin-right: 10px;
+}
+.bottom-split {
+	display: inline-block;
+	background-color: #E4E4E4;
+	width: 1px;
+	height: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: -7px;
+}
+
+
+
+
+
+
+.header .right {
+	height: 80px;
+	width: 30%;
+	color: #2EA4DA;
+	margin-right: 10px;
+}
+.header .right span {
+	cursor: pointer;
+}
+
+.header .right .top{
+	top: 15px;
+}
+.header .right .bottom {
+	bottom: 15px;
+}
+
+.header .right .username {
+	background-image: url(../images/icon_username.png);
+	background-position-x: left;
+	background-position-y: center;
+	background-repeat: no-repeat;
+	padding-left:18px;
+}
+.header .right .exit {
+	background-image: url(../images/icon_arraw_down.png);
+	background-position-x: left;
+	background-position-y: center;
+	background-repeat: no-repeat;
+	padding-left:18px;
+	margin-left: 10px;
+}
+/* ====================全局 页面头部样式 结束=============== */
+
+/* =====================全局 页面底部样式 开始===================== */
+.footer {
+	width: 100%;
+	height: 40px;
+	background-color: #E6E4E5;
+	line-height: 40px;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+}
+/* =====================全局 页面底部样式 结束===================== */
+
+
+/* 全局 页面内容主体 */
+.content-wrap {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+/* easyui 样式更改 */
+

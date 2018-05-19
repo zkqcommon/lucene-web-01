@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	
+	<link rel="stylesheet" type="text/css" href="../css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../css/css3-flex.css" />
+	<link rel="stylesheet" type="text/css" href="../css/page.css" />
+	<style type="text/css">
+		* {
+			margin:auto;
+			padding:auto;
+		}
+	</style>
+	
+	<!-- jquery脚本 -->
+	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+	<script type="text/javascript">
+		function ajax (method,url,callback) {
+		  var xhr = new XMLHttpRequest()  // 创建异步请求
+		  // 异步请求状态发生改变时会执行这个函数
+		  xhr.onreadystatechange = function () {
+		    // status == 200 用来判断当前HTTP请求完成
+		    if ( xhr.readyState == 4 && xhr.status == 200 ) {
+		      callback(JSON.parse(xhr.responseText))  // 执行回调
+		    }
+		  }
+		  xhr.open(method,url)  // 使用GET方法获取
+		  xhr.send();// 发送异步请求
+		}
+	
+		var nlpConfig = {
+				token : ''
+		};
+		$(function() {
+			requestPageData(1);
+		});
+		
+		
+		//全局的ajax访问，处理ajax清求时session超时
+	      $.ajaxSetup({
+	         /* contentType:"application/x-www-form-urlencoded;charset=utf-8", */
+	         complete:function(xhr,textStatus){
+	        	 alert('-'+xhr.responseText);
+	          }
+	       });
+		
+		var pageData;
+		function requestPageData(page) {
+			$.ajax({
+				url:'http://localhost:8090/jianfa-nlp-baidu/nlp',
+				type:'post',
+				/* dataType:'json', */
+				/* contentType : 'json', */
+				timeout:1000*60*10,
+				cache:false,
+				beforeSend:function(xhr) {
+					console.log('beforeSend');
+				},
+				complete:function(xhr,textStatus) {
+					console.log('complete');
+				},
+				success:function(data,textStatus,xhr) {
+					console.log('success');
+				},
+				error:function(xhr,textStatus,errorThrown) {
+					alert(errorThrown);
+				}
+			});
+		}
+		
+		function refreshToken() {
+			var url = 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=ILBOZhNqLAtxg6aN5W3k5UKV&client_secret=lzakRLN2Zv9fR9b8Ho6I9ASnViRUSzD8';
+			ajax('OPTIONS',url,function(data) {
+				nlpConfig.token = data;
+				$('#tokenText').html(nlpConfig.token.access_token);
+			});
+		}
+		function refreshToken1() {
+			$.ajax({
+				url:'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=ILBOZhNqLAtxg6aN5W3k5UKV&client_secret=lzakRLN2Zv9fR9b8Ho6I9ASnViRUSzD8',
+				type:'post',
+				dataType:'json',
+				/* contentType : 'json', */
+				timeout:1000*60*10,
+				cache:false,
+				complete:function(xhr,textStatus) {
+				},
+				success:function(data,textStatus,xhr) {
+					nlpConfig.token = xhr;
+					$('#tokenText').html(nlpConfig.token.access_token);
+				},
+				error:function(xhr,textStatus,errorThrown) {
+					alert(errorThrown);
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div class="body-container flexbox-row">
+	<button onclick="refreshToken();">刷新Token</button><span id="tokenText"></span>
+	</div>
+</body>
+</html>

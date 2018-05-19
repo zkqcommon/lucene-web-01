@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	
+	<link rel="stylesheet" type="text/css" href="../css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../css/css3-flex.css" />
+	<link rel="stylesheet" type="text/css" href="../css/page.css" />
+	<style type="text/css">
+		* {
+			margin:auto;
+			padding:auto;
+		}
+	</style>
+	
+	<!-- jquery脚本 -->
+	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+	<script type="text/javascript">
+		$(function() {
+		});
+		
+		function lexer() {
+			$.ajax({
+				url:'http://localhost:8090/jianfa-nlp-baidu/lexer',
+				type:'post',
+				data:$('#text').val(),
+				dataType:'application/json; charset=utf-8',
+				contentType : 'text/html; charset=GBK',
+				timeout:1000*60*10,
+				cache:false,
+				success:function(data,textStatus,xhr) {
+					$('#lexerResult').html(JSON.stringfy(data));
+				},
+				error:function(xhr,textStatus,errorThrown) {
+					alert(errorThrown);
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div class="body-container">
+		<h1>词法分析</h1>
+		<p>词法分析接口向用户提供分词、词性标注、专名识别三大功能；能够识别出文本串中的基本词汇（分词），对这些词汇进行重组、标注组合后词汇的词性，并进一步识别出命名实体。</p>
+		<div>
+			<textarea id="text" rows="" cols="" style="width:90%;height:400px"></textarea>
+		</div>
+		<button onclick="lexer();">词法分析</button><span id="tokenText"></span>
+		<div id="lexerResult">
+		
+		</div>
+	</div>
+</body>
+</html>
